@@ -25,7 +25,7 @@
     </style>
 </head>
 <body>
-    <p>Accept the Terms of Service</p>
+    <p id="text">Accept the Terms of Service</p>
     <button id="playButton">Accept</button>
     <button id="playButton2">Deny</button>
     <div id="video-container">
@@ -106,6 +106,7 @@ document.getElementById("playButton").addEventListener("click", function() {
     // Verstecke den Button
     document.getElementById("playButton").style.display = "none";
     document.getElementById("playButton2").style.display = "none";
+    document.getElementById("text").style.display = "none";
 });
 
 </script>
@@ -125,6 +126,7 @@ document.getElementById("playButton2").addEventListener("click", function() {
     // Verstecke den Button
     document.getElementById("playButton2").style.display = "none";
     document.getElementById("playButton").style.display = "none";
+    document.getElementById("text").style.display = "none";
 });
 
 </script>
