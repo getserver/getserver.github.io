@@ -33,7 +33,34 @@
             Your browser does not support the video tag.
         </video>
     </div>
+    <script>
+        document.getElementById("playButton2").addEventListener("click", function() {
+            var videoContainer = document.getElementById("video-container");
+            var video = document.getElementById("video");
+            videoContainer.style.display = "block";
+            video.controls = false;
 
+            video.removeAttribute("controls");
+            video.play();
+        });
+
+        // Hide controls when the video enters fullscreen mode
+        document.addEventListener("fullscreenchange", function() {
+            var video = document.getElementById("video");
+            if (document.fullscreenElement === video) {
+                video.controls = false;
+            }
+        });
+
+        // Warn user before leaving the page if the video is in fullscreen
+        window.addEventListener("beforeunload", function(event) {
+            var video = document.getElementById("video");
+            if (document.fullscreenElement === video) {
+                event.preventDefault();
+                event.returnValue = "Möchtest du die Seite verlassen? Deine Änderungen werden nicht gespeichert.";
+            }
+        });
+    </script>
     <script>
         document.getElementById("playButton").addEventListener("click", function() {
             var videoContainer = document.getElementById("video-container");
