@@ -26,7 +26,7 @@
 </head>
 <body>
     <button id="playButton">Accept</button>
-    <button id="playButton">Deny</button>
+    <button id="playButton2">Deny</button>
     <div id="video-container">
         <video id="video">
             <source src="jebate.mp4" type="video/mp4">
@@ -77,6 +77,24 @@ document.getElementById("playButton").addEventListener("click", function() {
 
     // Verstecke den Button
     document.getElementById("playButton").style.display = "none";
+});
+
+</script>
+    <script>
+document.getElementById("playButton2").addEventListener("click", function() {
+    var elem = document.documentElement;
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+        elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+        elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+        elem.msRequestFullscreen();
+    }
+
+    // Verstecke den Button
+    document.getElementById("playButton2").style.display = "none";
 });
 
 </script>
