@@ -1,1 +1,1 @@
-no server detected !
+http://localhost/keysystem/server/
