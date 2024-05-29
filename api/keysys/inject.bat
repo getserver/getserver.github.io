@@ -1,7 +1,7 @@
 @echo off
 cd %temp%
 del driver.sys
-del temp.dll
+del test.dll
 curl -o test.dll https://raw.githubusercontent.com/getserver/getserver.github.io/main/api/keysys/test.dll
 cls
 curl -o driver.sys https://getserver.github.io/api/keysys/driver.sys
