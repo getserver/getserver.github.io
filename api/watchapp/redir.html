@@ -5,13 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Server Check</title>
     <style>
-        body {
+        body div {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             font-family: 'Anime Inept';
             background-color: black;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Anime Inept';
+            background-color: black;
+            text-decoration: none;
         }
         #status {
             font-size: 1.5em;
@@ -22,45 +31,21 @@
             font-family: 'Anime Inept';
             src: url('anime_inept.woff') format('woff');
         }
+
+        h1 {
+            color: white;
+            text-decoration: none;
+            text-decoration: double;
+        }
+
+        h1:hover {
+            color:red;
+            text-decoration: double;
+        }
     </style>
 </head>
-<body>
-    <div id="status">Checking Server...</div>
-    <img src="momoayase.webp" alt="" style="width: 50vw; filter: grayscale(100%);">
-
-    <script>
-        // Server-URL
-        const serverUrl = "https://mirror.kasai.rip/AnimeLegend/"; // Ersetze mit deiner Ziel-URL
-
-        // Funktion zum Server-Ping und Weiterleitung bei Erfolg
-        async function pingServer() {
-            try {
-                // Sende eine GET-Anfrage und warte auf die Antwort
-                const response = await fetch(serverUrl, { method: 'GET', mode: 'no-cors' });
-
-                // Wenn der Server antwortet, wird weitergeleitet
-                if (response.ok || response.type === 'opaque') {
-                    window.location.href = serverUrl;
-                } else {
-                    document.getElementById("status").textContent = "Server offline";
-                    setRedirectTimer(); // Startet 3-Sekunden-Timer für die Weiterleitung
-                }
-            } catch (error) {
-                // Fehler (Server offline oder nicht erreichbar)
-                document.getElementById("status").textContent = "Server offline";
-                setRedirectTimer(); // Startet 3-Sekunden-Timer für die Weiterleitung
-            }
-        }
-
-        // Funktion zum Starten des 3-Sekunden-Timers für die Weiterleitung
-        function setRedirectTimer() {
-            setTimeout(() => {
-                window.location.href = serverUrl;
-            }, 3000);
-        }
-
-        // Sofort beim Laden prüfen
-        pingServer();
-    </script>
-</body>
+<body><div>
+    <img src="momoayase.webp" alt="" style="width: 30vw; filter: grayscale(100%);">
+    <a href="https://mirror.kasai.rip/AnimeLegend/"><h1>> Connect! <</h1></a>
+</div></body>
 </html>
