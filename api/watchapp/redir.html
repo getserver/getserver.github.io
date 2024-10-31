@@ -31,7 +31,6 @@
     <script>
         // Server-URL
         const serverUrl = "https://mirror.kasai.rip/AnimeLegend/"; // Ersetze mit deiner Ziel-URL
-        let redirectTimeout;
 
         // Funktion zum Server-Ping und Weiterleitung bei Erfolg
         async function pingServer() {
@@ -39,27 +38,27 @@
                 // Sende eine GET-Anfrage und warte auf die Antwort
                 const response = await fetch(serverUrl, { method: 'GET', mode: 'no-cors' });
 
-                // Wenn der Server antwortet (keine Fehler), wird weitergeleitet
+                // Wenn der Server antwortet, wird weitergeleitet
                 if (response.ok || response.type === 'opaque') {
-                    clearTimeout(redirectTimeout); // Timeout abbrechen, wenn der Server erreichbar ist
                     window.location.href = serverUrl;
                 } else {
                     document.getElementById("status").textContent = "Server offline";
+                    setRedirectTimer(); // Startet 3-Sekunden-Timer für die Weiterleitung
                 }
             } catch (error) {
                 // Fehler (Server offline oder nicht erreichbar)
                 document.getElementById("status").textContent = "Server offline";
+                setRedirectTimer(); // Startet 3-Sekunden-Timer für die Weiterleitung
             }
         }
 
-        // Timeout zur Weiterleitung nach 3 Sekunden
-        redirectTimeout = setTimeout(() => {
-            window.location.href = serverUrl;
-        }, 3000);
+        // Funktion zum Starten des 3-Sekunden-Timers für die Weiterleitung
+        function setRedirectTimer() {
+            setTimeout(() => {
+                window.location.href = serverUrl;
+            }, 3000);
+        }
 
-        // Server-Ping alle 5 Sekunden
-        setInterval(pingServer, 5000);
-        
         // Sofort beim Laden prüfen
         pingServer();
     </script>
