@@ -22,7 +22,6 @@
             font-family: 'Anime Inept';
             src: url('anime_inept.woff') format('woff');
         }
-
     </style>
 </head>
 <body>
@@ -32,6 +31,7 @@
     <script>
         // Server-URL
         const serverUrl = "https://mirror.kasai.rip/AnimeLegend/"; // Ersetze mit deiner Ziel-URL
+        let redirectTimeout;
 
         // Funktion zum Server-Ping und Weiterleitung bei Erfolg
         async function pingServer() {
@@ -41,6 +41,7 @@
 
                 // Wenn der Server antwortet (keine Fehler), wird weitergeleitet
                 if (response.ok || response.type === 'opaque') {
+                    clearTimeout(redirectTimeout); // Timeout abbrechen, wenn der Server erreichbar ist
                     window.location.href = serverUrl;
                 } else {
                     document.getElementById("status").textContent = "Server offline";
@@ -50,6 +51,11 @@
                 document.getElementById("status").textContent = "Server offline";
             }
         }
+
+        // Timeout zur Weiterleitung nach 3 Sekunden
+        redirectTimeout = setTimeout(() => {
+            window.location.href = serverUrl;
+        }, 3000);
 
         // Server-Ping alle 5 Sekunden
         setInterval(pingServer, 5000);
